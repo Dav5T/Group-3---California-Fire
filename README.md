@@ -22,15 +22,15 @@ There should be a total of 3 folders under Darvy which contains other files and 
 ### HTML pages
 
 The pages are hyperlinked to the next. The order of the pages is as followed:
-
-<br>&ensp;Title
-<br>&ensp;Agenda
-<br>&ensp;Introduction
-<br>&ensp;DataSet
-<br>&ensp;mapbox (found in the Mapbox Forest Fire Folder)
-<br>&ensp;Temperature
-<br>&ensp;Temperature graph
-<br>&ensp;conclusion 
+<br>
+<br>&ensp;•Title
+<br>&ensp;•Agenda
+<br>&ensp;•Introduction
+<br>&ensp;•DataSet
+<br>&ensp;•mapbox (found in the Mapbox Forest Fire Folder)
+<br>&ensp;•Temperature
+<br>&ensp;•Temperature graph
+<br>&ensp;•conclusion 
 
 ### Database:
 We used MongoDB to store the data
@@ -57,7 +57,7 @@ I ended up using Mapbox to display the locations of the fires each years when us
 <br>
 
 ### References
-*1. Linear Regression Calculation *
+*1. Linear Regression Calculation*
 <br>https://www.graphpad.com/quickcalcs/linear1/
 <br>
 <br>*2. Linear Regressions Javascript*
