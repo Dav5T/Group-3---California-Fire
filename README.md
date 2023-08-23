@@ -1,9 +1,43 @@
 
 # Group 3 - California Wildfires
-Our goal is to find out what factors contribute to California Wildfire 
+Our goal is to find out what factors contribute to California Wildfires over over a time period from 2018-2023, and investigate the distribution of those factors that were demonstrated to cause fires, directly or indirectly. We also investigated the severity of fires based on direct cause.
+
+### Factors Examined:
+
+**Indirect Causes**
+
+- Temparature
+- Draught
+- Insect Infestation
+
+**Direct Causes**
+- 19 causes documented in Calfire data, a mix of natural and human causes:
+  - Lightning
+  - Equipment Use
+  - Smoking
+  - Campfire
+  - Debris
+  - _Railroad**_
+  - Arson
+  - Playing with fire
+  - _Miscellaneous*_
+  - Vehicle
+  - Powerline
+  - Firefighter Training*
+  - _Non-Firefighter Training*_
+  - _Unknown / Unidentified*_
+  - Structure
+  - Aircraft**
+  - Escaped Prescribed Burn
+  - Illegal Alien Campfire
+ 
+_*Excluded, no instances during this time period_
+
+_**Combined_
 
 ## Description
 
+**Darvy:**
 ### Files and folders
 There should be a total of 3 folders under Darvy which contains other files and subfolders:
 <br>**1. data:**
@@ -51,26 +85,33 @@ I ended up using Mapbox to display the locations of the fires each years when us
 ## Source
 
 ### Data
-**Califire API:** https://www.fire.ca.gov/incidents/
-<br>**National Centers for Environmental Information (weather):**  https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county/mapping/4/tavg/202208/1/rank
-<br>**Opendatasoft (US County Boundaries):**  https://public.opendatasoft.com/explore/dataset/us-county-boundaries/export/?disjunctive.statefp&disjunctive.countyfp&disjunctive.name&disjunctive.namelsad&disjunctive.stusab&disjunctive.state_name&refine.stusab=CA
+**Calfire API:** https://www.fire.ca.gov/incidents/
 
-<br>** U.S Drought Monitor: ** https://droughtmonitor.unl.edu/DmData/DataDownload/WeeksInDrought.aspx
+**National Centers for Environmental Information (weather):**  https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county/mapping/4/tavg/202208/1/rank
+
+**Opendatasoft (US County Boundaries):**  https://public.opendatasoft.com/explore/dataset/us-county-boundaries/export/?disjunctive.statefp&disjunctive.countyfp&disjunctive.name&disjunctive.namelsad&disjunctive.stusab&disjunctive.state_name&refine.stusab=CA
+
+**U.S Drought Monitor:** https://droughtmonitor.unl.edu/DmData/DataDownload/WeeksInDrought.aspx
+
+**Calfire data from CNRA:** https://gis.data.cnra.ca.gov/datasets/CALFIRE-Forestry::california-fire-perimeters-all-1/explore?filters=eyJZRUFSXyI6WyIyMDIyIiwiMjAyMSIsIjIwMjAiLCIyMDE5IiwiMjAxOCJdLCJTVEFURSI6WyJDQSJdLCJDQVVTRSI6WzEsMThdfQ%3D%3D&showTable=true
+
+**Califirnia County Coordinates:** https://data.cnra.ca.gov/dataset/california-counties1/resource/55600479-ec3c-461c-af7a-e56d198660fe?inner_span=True
 
 
 ### References
+
 *1. Linear Regression Calculation*
-<br>https://www.graphpad.com/quickcalcs/linear1/
-<br>
-<br>*2. Linear Regressions Javascript*
-<br>https://www.w3schools.com/ai/ai_regressions.asp
-<br>
-<br>*3. Sort GeoJson*
-<br>https://stackoverflow.com/questions/65411098/how-do-i-sort-a-geojson-features-array-by-a-property-value#:~:text=Geojson%20is%20still%20valid%20json,schema%2C%20not%20a%20new%20type.
-<br>
-<br>*4. Mapbox*
-<br>https://docs.mapbox.com/help/tutorials/show-changes-over-time/
-<br>
+https://www.graphpad.com/quickcalcs/linear1/
+
+*2. Linear Regressions Javascript*
+https://www.w3schools.com/ai/ai_regressions.asp
+
+*3. Sort GeoJson*
+https://stackoverflow.com/questions/65411098/how-do-i-sort-a-geojson-features-array-by-a-property-value#:~:text=Geojson%20is%20still%20valid%20json,schema%2C%20not%20a%20new%20type.
+
+*4. Mapbox*
+https://docs.mapbox.com/help/tutorials/show-changes-over-time/
+
 
 
 
