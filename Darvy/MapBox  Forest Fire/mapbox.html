@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wildfire locations</title>
+
+  <!-- MapBox CSS -->
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+  
+  <!-- Mapbox Script -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+  
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  
+</head>
+ 
+</head>
+
+<body>
+
+  <!-- for the slider on the side -->
+  <div id = 'title'><h1><a href="http://127.0.0.1:5500/temperature.html">Wild Fires</a> <h1></h1></div>
+  <div id='map'></div>
+  <div id='console'>
+    <h3>Wildfires in California</h3>
+    <p>Data: <a href='https://www.fire.ca.gov/incidents/'>California Fire</a></p>
+    <div class='session'>
+      <h2>Acres burned</h2>
+      <div class='row colors'>
+      </div>
+      <div class='row labels'>
+        <div class='label'>0</div>
+        <div class='label'>50</div>
+        <div class='label'>100</div>
+        <div class='label'>200</div>
+        <div class='label'>1000</div>
+        <div class='label'>10,000+</div>
+      </div>
+    </div>
+
+    <div class='session' id='sliderbar'>
+      <h2>Year: <label id='active-year'>2020</label></h2>
+      <!-- <input id='slider' class='row' type='range' min='0' max='23' step='1' value='12' /> -->
+      <input id='slider' class='row' type='range' min='2018' max='2023' step='1' value='2020' />
+    </div>
+
+  
+  
+  </div>
+
+   <!-- D3 JavaScript -->
+   <script src="https://d3js.org/d3.v7.min.js"></script>
+
+
+  <script>
+  
+  
+  const tempFeature = d3.json('./GeoJsonList.json').then(item =>{
+
+  filters(item.features)
+
+  })
+
+  function filters(dates)
+  {
+    let years = dates.map(h => h.properties.StartedDateOnly)
+    
+    let year1 =[]
+    for (var i in years){
+      year1.push(parseInt(new Date(years[i]).getFullYear()))
+    }
+
+    dates.forEach((i) =>{ 
+    let index = dates.indexOf(i);
+    i['year'] = year1[index]
+    });
+
+    console.log(dates)
+  
+
+  }
+ 
+
+
+
+
+
+
+  
+  
+  // url((item) => { item.year = StartedDateOnly.split("-"[0]);
+  // return item});
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZGF2ejIwMjMiLCJhIjoiY2xsZTBveHdlMDlmczNycWhzZHRrbnJqNSJ9.jcLlrWJ8OKdNAoNslnRzXQ';
+    
+  const map = new mapboxgl.Map({
+    container: 'map', // container element id
+    style: 'mapbox://styles/mapbox/light-v11',
+    //center: [-74.0059, 40.7128], // initial map center in [lon, lat]
+    center: [-119.7871, 36.7378 ],
+    zoom: 7
+  });
+
+  map.on('load', () => {
+    map.addLayer({
+      id: 'fire',
+      type: 'circle',
+      source: {
+        type: 'geojson',
+        data: './2018.json'  // flask link: http://127.0.0.1:5000/api/v1.0/mapbox 
+      },
+   
+    paint: {
+      'circle-radius': [
+        'interpolate',
+        ['linear'],
+        ['number', ['get', 'AcresBurned']],
+        0,
+        3,
+        5,
+        20, 
+     
+       
+      ],
+    'circle-color': [
+      'interpolate',
+      ['linear'],
+      //['number', ['get', 'Casualty']],
+      ['number', ['get', 'AcresBurned']],
+      0,
+      '#2DC4B2',
+      50,
+      '#3BB3C3',
+      100,
+      '#669EC4',
+      200,
+      '#8B88B6',
+      1000,
+      '#A2719B',
+      10000,
+      '#AA5E79'
+
+    ],
+    'circle-opacity': 0.8
+    },
+
+    
+
+   
+  filter: ['==', ['number', ['get', 'Year']], 2020],
+ //filter: ['=='['slice',['get', 'StartedDateOnly'], 0,4], "2020"]
+ //filter: ['==', ['string', ['get', 'StartedDateOnly'.getFullYear()]], '2020'],
+  //filter: ['==', ['string', ['get', 'StartedDateOnly'.getFullYear()]], '2020']
+  //filter: ['==', ['string'['get', 'StartedDateOnly']], new Date.GetFullYear("2018-04-12")],
+
+  
+  });
+});
+
+document.getElementById('slider').addEventListener('input', (event) => {
+  const year = parseInt(event.target.value);
+  // update the map
+  map.setFilter('fire', ['==', ['number', ['get', 'Year']], year]);
+
+  document.getElementById('active-year').innerText = year;
+});
+
+// document.getElementById('slider').addEventListener('input', (event) => {
+//   const year = parseInt(event.target.value);
+
+//   map.setFilter('fire', ['==', ['string', ['get', 'StartedDateOnly']], year]);
+
+//   // converting 0-23 hour to AMPM format
+//   const ampm  = year =(new Date(year).getFullYear());
+
+  
+//   document.getElementById('active-year').innerText = ampm;
+// });
+
+
+
+// var td = document.getElementsByClassName('label');
+// for(var i in td )
+//   {td[i].style.fontSize ="smaller"}
+//     </script>
+  
+  
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Average Temperature</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin="" />
+
+        <!-- Leaflet JavaScript code-->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
+   <!-- D3 library -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- nouslider CSS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/8.5.1/nouislider.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/8.5.1/nouislider.min.js"></script>
+  
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body>
+
+
+<!-- slider -->
+  <!-- <div id="slider" style="top: 0px; right: 1px; margin: 10px 25px;"></div> -->
+  
+  <!-- The div that holds our map -->
+  <div id="map"></div>
+  <div id="info-pane" class="leaflet-bar chart-container">
+    <!-- <canvas id="chartCanvas"></canvas> -->
+    <p><h4> Year:</h4></p>
+    <select id="selDataset">
+      <option value=2018>2018</option>
+      <option value=2019>2019</option>
+      <option value=2020>2020</option>
+      <option value=2021>2021</option>
+      <option value=2022>2022</option>
+      <option value=2023>2023</option>
+    </select>
+    <div id="plotlyDiv" style="width: 400px;height:380x;"></div>
+    <a href = "http://127.0.0.1:5500/temperature_graph.html"> Graphs</a>
+   
+  
+  </div>
+
+ 
+  <!-- <div class='session' id='slider'>
+    <h2>Year: <label id='active-hour'>2020</label></h2>
+    <input id='slider' class='row' type='range' min='2018' max='2023' step='1' value='2020' />
+  </div>
+   -->
+
+
+ 
+
+
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+  <!-- D3 JavaScript -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- leaflet-choropleth JavaScript -->
+  <script type="text/javascript" src="static/js/choropleth.js"></script>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Our JavaScript -->
+  <script type="text/javascript" src="static/js/logic.js"></script>
+ 
+  <!-- keys -->
+  <!-- <script type=’text/javascript’ src=’static/js/config.js’></script> -->
+  <!-- <script type=’text/javascript’ src=’static/js/script.js></script> -->
+
+</body>
+
+</html>
