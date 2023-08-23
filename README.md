@@ -54,7 +54,9 @@ I ended up using Mapbox to display the locations of the fires each years when us
 **Califire API:** https://www.fire.ca.gov/incidents/
 <br>**National Centers for Environmental Information (weather):**  https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county/mapping/4/tavg/202208/1/rank
 <br>**Opendatasoft (US County Boundaries):**  https://public.opendatasoft.com/explore/dataset/us-county-boundaries/export/?disjunctive.statefp&disjunctive.countyfp&disjunctive.name&disjunctive.namelsad&disjunctive.stusab&disjunctive.state_name&refine.stusab=CA
-<br>
+
+<br>** U.S Drought Monitor: ** https://droughtmonitor.unl.edu/DmData/DataDownload/WeeksInDrought.aspx
+
 
 ### References
 *1. Linear Regression Calculation*
